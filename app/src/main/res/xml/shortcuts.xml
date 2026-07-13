@@ -1,0 +1,13 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="playlists"
+        android:enabled="true"
+        android:icon="@drawable/ic_playlist"
+        android:shortcutShortLabel="@string/shortcut_playlists">
+        <intent
+            android:action="com.ting.sonik.ACTION_VIEW_PLAYLISTS"
+            android:targetPackage="com.ting.sonik"
+            android:targetClass="com.ting.sonik.ui.activities.Sonik" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>
