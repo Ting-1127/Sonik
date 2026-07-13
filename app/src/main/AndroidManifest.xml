@@ -85,6 +85,11 @@
             android:label="@string/blur"
             android:theme="@style/Theme.Sonik" />
         <activity
+            android:name=".ui.activities.MusicSourceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Sonik" />
+
+        <activity
             android:name=".ui.activities.EqualizerActivity"
             android:exported="false"
             android:label="@string/eq_title"
