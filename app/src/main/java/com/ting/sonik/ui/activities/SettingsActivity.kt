@@ -56,7 +56,6 @@ import com.ting.sonik.ui.activities.MusicSourceActivity
 import com.ting.sonik.ui.theme.SonikTheme
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.ting.sonik.BuildConfig
-import com.ting.sonik.ui.activities.FolderBrowserActivity
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
