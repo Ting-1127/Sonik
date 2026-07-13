@@ -434,7 +434,7 @@ class Sonik : AppCompatActivity() {
                 val base = mutableListOf("RESUME", "ALL", "PLAYLISTS")
                 if (hasFavorites) base.add("FAVORITES")
                 base.add("ALBUMS")
-                if (visibleFolders.isNotEmpty()) base.add("FOLDERS")
+                // if (visibleFolders.isNotEmpty()) base.add("FOLDERS")
                 if (isSectionCustomizationEnabled) {
                     base.removeAll(hiddenSectionTabs)
                     if ("RESUME" !in base) base.add(0, "RESUME")

@@ -55,6 +55,7 @@ import com.ting.sonik.tools.SettingsManager
 import com.ting.sonik.ui.theme.SonikTheme
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.ting.sonik.BuildConfig
+import com.ting.sonik.ui.activities.FolderBrowserActivity
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -323,6 +324,30 @@ fun SettingsScreen(
                     icon = Icons.Default.Language,
                     position = SectionPosition.LAST,
                     onClick = { showLanguageDialog = true }
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Music Source Section
+            SettingsSection(title = "音乐源") {
+                SettingsPreferenceItem(
+                    headlineText = "选择音乐文件夹",
+                    supportingText = "管理扫描的音乐文件夹",
+                    icon = Icons.Default.Folder,
+                    position = SectionPosition.FIRST,
+                    onClick = {
+                        context.startActivity(Intent(context, FolderBrowserActivity::class.java))
+                    }
+                )
+                SettingsPreferenceItem(
+                    headlineText = "隐藏文件夹",
+                    supportingText = "隐藏不需要显示的文件夹",
+                    icon = Icons.Default.Folder,
+                    position = SectionPosition.LAST,
+                    onClick = {
+                        context.startActivity(Intent(context, FolderBrowserActivity::class.java))
+                    }
                 )
             }
 
