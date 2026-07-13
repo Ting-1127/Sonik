@@ -1658,9 +1658,14 @@ fun MainScreen(
                                                             if (isPlaying) playbackManager.pause() else playbackManager.resume()
                                                             onIsPlayingChange(!isPlaying)
                                                         } else if (pageSortedSongs.isNotEmpty()) {
-                                                            val songToPlay = if (isShuffleActive) pageSortedSongs.random() else pageSortedSongs[0]
-                                                            onCurrentSongChange(songToPlay)
-                                                            playbackManager.play(songToPlay, pageSortedSongs, pageContextId, category = folder, shuffleMode = isShuffleActive)
+                                                            if (isShuffleActive) {
+                                                                val shuffled = pageSortedSongs.shuffled()
+                                                                onCurrentSongChange(shuffled[0])
+                                                                playbackManager.play(shuffled[0], shuffled, pageContextId, category = folder, shuffleMode = true)
+                                                            } else {
+                                                                onCurrentSongChange(pageSortedSongs[0])
+                                                                playbackManager.play(pageSortedSongs[0], pageSortedSongs, pageContextId, category = folder, shuffleMode = false)
+                                                            }
                                                             onIsPlayingChange(true)
                                                         }
                                                     },

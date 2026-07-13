@@ -128,7 +128,7 @@ class SettingsManager(context: Context) {
         set(value) = prefs.edit().putBoolean("is_automix", value).apply()
 
     var repeatMode: Int
-        get() = prefs.getInt("repeat_mode", 0) // 0: Off, 1: One, 2: All
+        get() = prefs.getInt("repeat_mode", 2) // 0: Off, 1: One, 2: All
         set(value) = prefs.edit().putInt("repeat_mode", value).apply()
 
     var isEqEnabled: Boolean
