@@ -29,17 +29,6 @@ cd Sonik
 ./gradlew assembleDebug
 ```
 
-APK 输出：`app/build/outputs/apk/debug/Sonik-debug.apk`
-
-## 修改内容
-
-基于 Lune Music Player 修改：
-- 包名：`com.demonlab.lune` → `com.ting.sonik`
-- 应用名：`Lune` → `Sonik`
-- 优化引导页流程（10步→3步）
-- 国内 Maven 源配置
-- About 页面：添加修改者信息
-
 ## 原项目
 
 - [Lune Music Player](https://github.com/MrDemonc/Lune) by MrDemonc
