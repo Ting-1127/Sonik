@@ -329,22 +329,13 @@ fun SettingsScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Music Source Section
-            SettingsSection(title = "音乐源") {
+            // Music Library Section
+            SettingsSection(title = "曲库") {
                 SettingsPreferenceItem(
-                    headlineText = "选择音乐文件夹",
-                    supportingText = "管理扫描的音乐文件夹",
+                    headlineText = "音乐源",
+                    supportingText = "管理音乐的加载位置",
                     icon = Icons.Default.Folder,
-                    position = SectionPosition.FIRST,
-                    onClick = {
-                        context.startActivity(Intent(context, FolderBrowserActivity::class.java))
-                    }
-                )
-                SettingsPreferenceItem(
-                    headlineText = "隐藏文件夹",
-                    supportingText = "隐藏不需要显示的文件夹",
-                    icon = Icons.Default.Folder,
-                    position = SectionPosition.LAST,
+                    position = SectionPosition.SINGLE,
                     onClick = {
                         context.startActivity(Intent(context, FolderBrowserActivity::class.java))
                     }
