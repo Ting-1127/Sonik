@@ -128,6 +128,9 @@ class MusicProvider(private val context: Context) {
 
         val selection = "${MediaStore.Audio.Media.IS_MUSIC} != 0"
         val sortOrder = "${MediaStore.Audio.Media.TITLE} ASC"
+        
+        val musicSources = settingsManager.musicSources
+        val filterBySources = musicSources.isNotEmpty()
 
         val overrides = database.songOverrideDao().getAllOverrides().associateBy { it.songId }
 
@@ -156,12 +159,21 @@ class MusicProvider(private val context: Context) {
 
             while (cursor.moveToNext()) {
                 val id = cursor.getLong(idColumn)
+                var dataPath = cursor.getString(dataColumn)
+                
+                // 如果设置了 musicSources，只扫描指定文件夹
+                if (filterBySources) {
+                    val isInSource = musicSources.any { source ->
+                        dataPath.startsWith(source)
+                    }
+                    if (!isInSource) continue
+                }
                 var title = cursor.getString(titleColumn)
                 var artist = cursor.getString(artistColumn)
                 var album = cursor.getString(albumColumn)
                 val duration = cursor.getLong(durationColumn)
                 val albumId = cursor.getLong(albumIdColumn)
-                val data = cursor.getString(dataColumn)
+                val data = dataPath
                 val dateAdded = cursor.getLong(dateAddedColumn)
                 val trackNumber = if (trackColumn != -1) cursor.getInt(trackColumn) else 0
                 var genre = if (genreColumn != -1) cursor.getString(genreColumn) else null
