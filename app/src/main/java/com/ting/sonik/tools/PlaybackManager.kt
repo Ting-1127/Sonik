@@ -638,7 +638,7 @@ class PlaybackManager private constructor(private val context: Context) {
             if (currentIndex > 0) {
                 activePlaylist[currentIndex - 1]
             } else {
-                return
+                activePlaylist[activePlaylist.lastIndex]
             }
         }
         play(prevSong)
