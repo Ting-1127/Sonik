@@ -337,7 +337,7 @@ fun SettingsScreen(
                     icon = Icons.Default.Folder,
                     position = SectionPosition.SINGLE,
                     onClick = {
-                        context.startActivity(Intent(context, FolderBrowserActivity::class.java))
+                        context.startActivity(Intent(context, MusicSourceActivity::class.java))
                     }
                 )
             }

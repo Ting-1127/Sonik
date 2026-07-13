@@ -26,6 +26,10 @@ class SettingsManager(context: Context) {
         get() = prefs.getStringSet("hidden_folders", emptySet()) ?: emptySet()
         set(value) = prefs.edit().putStringSet("hidden_folders", value).apply()
 
+    var musicSources: Set<String>
+        get() = prefs.getStringSet("music_sources", emptySet()) ?: emptySet()
+        set(value) = prefs.edit().putStringSet("music_sources", value).apply()
+
     // Deprecated: used for backward compatibility if needed, but we use hiddenFolders now
     var showWhatsappAudio: Boolean
         get() = !hiddenFolders.contains("WhatsApp Audio")
