@@ -17,7 +17,6 @@ import com.ting.sonik.R
 import com.ting.sonik.data.Playlist
 import com.ting.sonik.tools.PlaybackManager
 import com.ting.sonik.tools.Song
-import com.ting.sonik.ui.screens.resume.HeroSection
 import com.ting.sonik.ui.screens.resume.PlaylistGridSection
 import com.ting.sonik.ui.screens.resume.RecommendationSection
 import com.ting.sonik.ui.screens.resume.RecentlyAddedSection
@@ -116,23 +115,6 @@ fun ResumeScreen(
             .padding(top = 8.dp, bottom = bottomPadding + 16.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
-        AnimatedVisibility(
-            visible = true,
-            enter = fadeIn() + slideInVertically { it / 2 }
-        ) {
-            HeroSection(
-                currentSong = currentSong,
-                isPlaying = isPlaying,
-                dailyListeningTimeStr = dailyListeningTimeStr,
-                totalSongs = allSongs.size,
-                playlistsCount = allPlaylists.size,
-                favoriteCount = favoriteCount,
-                topArtist = realTopArtistName,
-                onContinueListening = onExpandPlayer,
-                onPlayToggle = onPlayToggle
-            )
-        }
-
         if (recommendations.isNotEmpty()) {
             AnimatedVisibility(
                 visible = true,
